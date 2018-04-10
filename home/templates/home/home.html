@@ -1,19 +1,27 @@
 {% extends "home/base.html" %}
 
+{% block page_style %}
+    <style>
+        .row {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display:         flex;
+          flex-wrap: wrap;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1 text-center">
-        <h1>TITLE HERE</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat.</p>
+        <h1>EDMusic Groove</h1>
+        <p>Welcome to EDMusic! The point of this page is to help people find some music in their area or to find a new artist or genre for them to enjoy.</p>
     </div>
 </div>
 
-
 <div class="row">
+    {% if user.is_authenticated %}
     <div class="card text-center col-xs-4">
         <div class="card_header">Your Account</div>
         <div class="card_body">
@@ -27,7 +35,7 @@
                     <p class="card_text">Username:</p>
                 </div>
                 <div class="col-xs-6">
-                    <p class="card_text">Krontime</p>
+                    <p class="card_text">{{ user.username }}</p>
                 </div>
             </div>
             <div class="row">
@@ -35,67 +43,75 @@
                     <p class="card_text">Name:</p>
                 </div>
                 <div class="col-xs-6">
-                    <p class="card_text">Krishen Rana</p>
+                    <p class="card_text">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+            </div>
+            <a href="{% url 'profile' %}" class="btn btn-primary">My Account</a>
+        </div>
+    </div>
+    <div class="card text-center col-xs-8 vert_align">
+        <div class="card_header">About</div>
+        <div class="card_body">
+            <p class="card_text">I created this website because I noticed the lack of smaller parties or concerts that could be found, so I created this for artists to be found, for dancers to find smaller local dances, and for people to find a new way to discover music! So take a look at the events, find a new artist, discover a new genre, and have fun! This website was created as a project for a coding bootcamp (Code Institute).</p>
+            <a href="#" class="btn btn-primary">Take a look at the author!</a>
+        </div>
+    </div>
+    
+    <div class="card text-center col-xs-4 text-center">
+        <div class="card_header">Messages:</div>
+        <div class="card_body">
+            <h5 class="card_title">You have:</h5>
+            <p class="card_text">{{ unread_mail }} Messages</p>
+            <a href="{% url 'inbox' %}" class="btn btn-primary">View Messages</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="card text-center col-xs-4">
+        <div class="card_header">Login Or Register</div>
+        <div class="card_body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="card_text btn btn-primary" href="{% url 'login' %}">Login</a>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6">
-                    <p class="card_text">Phone Number:</p>
-                </div>
-                <div class="col-xs-6">
-                    <p class="card_text">720-903-0392</p>
+                <div class="col-xs-12">
+                    <a class="card_text btn btn-warning" href="{% url 'register' %}">Register</a>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary">My Account</a>
         </div>
     </div>
-    
-    
-    <div class="card text-center col-xs-8">
-        <div class="card_header">Messages</div>
-        <div class="card_body">
-            <h5 class="card_title">Special title treatment</h5>
-            <p class="card_text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card_footer text-muted">2 days ago</div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="card text-center col-xs-6">
-        <div class="card_header">New Music</div>
-        <div class="card_body">
-            <h5 class="card_title">Special title treatment</h5>
-            <p class="card_text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card_footer text-muted">2 days ago</div>
-    </div>
-
-
-    <div class="card text-center col-xs-6">
-        <div class="card_header">Locate Music</div>
-        <div class="card_body">
-            <h5 class="card_title">Special title treatment</h5>
-            <p class="card_text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card_footer text-muted">2 days ago</div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="card text-center col-xs-12">
+    <div class="card text-center col-xs-8 vert_align">
         <div class="card_header">About</div>
         <div class="card_body">
-            <h5 class="card_title">Special title treatment</h5>
-            <p class="card_text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card_text">I created this website because I noticed the lack of smaller parties or concerts that could be found, so I created this for artists to be found, for dancers to find smaller local dances, and for people to find a new way to discover music! So take a look at the events, find a new artist, discover a new genre, and have fun! This website was created as a project for a coding bootcamp (Code Institute).</p>
+            <a href="#" class="btn btn-primary">Take a look at the author!</a>
         </div>
-        <div class="card_footer text-muted">2 days ago</div>
+    </div>
+    <div class="card text-center col-xs-4">
+        <div class="card_header">Messages</div>
+        <div class="card_body">
+            <h5 class="card_title">See Your Messages Here:</h5>
+            <p class="card_text">Login or Register To see Your Messages</p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card text-center col-xs-4">
+        <div class="card_header">Your Groove</div>
+        <div class="card_body">
+            <h5 class="card_title">Find A New Genre Or Artists</h5>
+            <p class="card_text">Check out a list of genres and their respective artists to fond your groove!</p>
+            <a href="#" class="btn btn-primary">Get It On</a>
+        </div>
+    </div>
+    <div class="card text-center col-xs-4">
+        <div class="card_header">Locate Music</div>
+        <div class="card_body">
+            <h5 class="card_title">What Events Are Happening</h5>
+            <p class="card_text">See what small music events are happening in the world or your area!</p>
+            <a href="#" class="btn btn-primary">Let's Find Some Music</a>
+        </div>
     </div>
 </div>
 
