@@ -1,0 +1,49 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="row">
+    {% if request.user.is_staff %}
+    <div class="row">
+        <a href="{% url 'new_main' %}" class="btn btn-secondary">New Genre</a>
+    </div>
+    {% endif %}
+    <div class="col-xs-12 col-sm-9">
+        {% for genre in genres|dictsort:"name" %}
+        <div class="col-sm-6 card" id="{{ genre.name }}">
+            <h2><a  href="{% url 'genre_desc' genre.id %}">{{ genre.name }}</a></h2>
+            <img class="small_card_images" src="{{ MEDIA_URL }}{{ genre.image }}"></img>
+            <p>{{ genre.description | truncatechars:100 }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-sm-3 sidebar">
+        <ul class="nav nav-list affix">
+            <li><a class="scrollspy_items" href="#Ambient">Ambient</a></li>
+            <li><a class="scrollspy_items" href="#Breakbeat">Breakbeat</a></li>
+            <li><a class="scrollspy_items" href="#Disco">Disco</a></li>
+            <li><a class="scrollspy_items" href="#Downtempo">Downtempo</a></li>
+            <li><a class="scrollspy_items" href="#Drum_and_Base">Drum & Base</a></li>
+            <li><a class="scrollspy_items" href="#Dub">Dub</a></li>
+            <li><a class="scrollspy_items" href="#Electro">Electro</a></li>
+            <li><a class="scrollspy_items" href="#Electroacoustic">Electroacoustic</a></li>
+            <li><a class="scrollspy_items" href="#Electrinic_Rock">Electrinic Rock</a></li>
+            <li><a class="scrollspy_items" href="#Electronica">Electronica</a></li>
+            <li><a class="scrollspy_items" href="#Ethnic_Electronica">Ethnic Electronica</a></li>
+            <li><a class="scrollspy_items" href="#Hardcore">Hardcore</a></li>
+            <li><a class="scrollspy_items" href="#Hardstyle">Hardstyle</a></li>
+            <li><a class="scrollspy_items" href="#Hi-RNG">Hi-RNG</a></li>
+            <li><a class="scrollspy_items" href="#Hip_Hop">Hip Hop</a></li>
+            <li><a class="scrollspy_items" href="#House">House</a></li>
+            <li><a class="scrollspy_items" href="#Industrial">Industrial</a></li>
+            <li><a class="scrollspy_items" href="#IDM">IDM</a></li>
+            <li><a class="scrollspy_items" href="#Jungle">Jungle</a></li>
+            <li><a class="scrollspy_items" href="#Post-Disco">Post-Disco</a></li>
+            <li><a class="scrollspy_items" href="#Techno">Techno</a></li>
+            <li><a class="scrollspy_items" href="#Trance">Trance</a></li>
+            <li><a class="scrollspy_items" href="#UK_Garage">UK Garage</a></li>
+            <li><a class="scrollspy_items" href="#Vaporwave">Vaporwave</a></li>
+            <li><a class="scrollspy_items" href="#Video_Game">Video Game</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

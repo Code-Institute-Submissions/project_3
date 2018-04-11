@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^$', render_homepage, name='home'),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^messenger/', include('messenger.urls')),
+    url(r'^groove/', include('new_music.urls')),
 ]
 
 

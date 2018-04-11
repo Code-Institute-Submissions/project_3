@@ -5,13 +5,12 @@
 {% block content %}
 <div class="container">
     <div class="row extra_top_padding">
-        <div class="col-sm-9 col-md-10">
-            <form method="POST">
+        <div class="col-sm-12">
+            <form action="" method="POST" enctype="multipart/form-data" data-ajax="false">
             
             {% csrf_token %}
             {{ form | as_bootstrap }}
             
-            <hr> 
             <input class="btn btn-success" type="submit" value="Send"/>
             </form>
         </div>

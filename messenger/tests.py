@@ -20,42 +20,20 @@ class MessageViewTests(TestCase):
         response = self.client.post('/messenger/inbox/compose_message/', message)
         self.assertEqual(response.status_code, 302)
     
-    # def test_view_message_that_exists(self):
-    #     sender = User(username="sender")
-    #     sender.save()
+    def test_delete_message_that_exists(self):
+        sender = User(username="sender")
+        sender.save()
     
-    #     recipient = User(username="receiver")
-    #     recipient.save()
+        recipient = User(username="receiver")
+        recipient.save()
     
-    #     message = Message(
-    #         subject = "Test Subject",
-    #         body = "Test Body",
-    #         sender = sender,
-    #         recipient = recipient)
-    #     message.save()
+        message = Message(
+            subject = "Test Subject",
+            body = "Test Body",
+            sender = sender,
+            recipient = recipient)
+        message.save()
     
-    #     response = self.client.get('/messenger/message/1')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "messenger/mail.html")
-    
-    # def test_viewing_a_message_marks_it_as_read(self):
-    #     sender = User.objects.create_user('sender', 'sender@example.com', 'sender')
-    #     recipient = User.objects.create_user('recipient', 'recipient@example.com', 'recipient')
-
-    #     message = Message(
-    #         subject = "Test Subject",
-    #         body = "Test Body",
-    #         sender = sender,
-    #         recipient = recipient)
-    #     message.save()
-        
-        
-    #     self.assertEqual(message.read, False)
-        
-    #     response = self.client.get('/messenger/message/1')
-    #     self.assertEqual(response.status_code, 200)
-    #     message = get_object_or_404(Message, pk=1)
-        
-    #     self.assertEqual(message.read, True)
-    
+        response = self.client.get('/messenger/delete_message/1')
+        self.assertEqual(response.status_code, 302)
     

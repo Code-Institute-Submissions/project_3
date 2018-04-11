@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'locate_music',
-    'messenger',
     'new_music',
+    'messenger',
     'django_forms_bootstrap',
 ]
 
