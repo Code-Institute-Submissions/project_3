@@ -34,5 +34,5 @@ def new_sub_genre(request, id):
 
 def genre_description(request, id):
     genre = get_object_or_404(MainGenre, pk=id)
-    sub_genres = MainGenre.objects.all()
-    return render(request, "new_music/genre_description.html", {'genre': genre, 'sub_genres': sub_genres})
+    subs = MainGenre.objects.all()
+    return render(request, "new_music/genre_description.html", {'genre': genre, 'subs': subs})

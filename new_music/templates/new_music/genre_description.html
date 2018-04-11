@@ -11,11 +11,11 @@
     </div>
 </div>
 <div class="row">
-    {% for sub_genre in sub_genres %}
+    {% for sub in subs %}
         <div class="col-sm-6 card">
-            <h2><a  href="#">{{ sub_genre.name }}</a></h2>
-            <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub_genre.image }}"></img>
-            <p>{{ sub_genre.description | truncatechars:100 }}</p>
+            <h2><a  href="#">{{ sub.name }}</a></h2>
+            <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub.image }}"></img>
+            <p>{{ sub.description | truncatechars:100 }}</p>
         </div>
     {% endfor %}
 </div>

@@ -21,10 +21,11 @@ EDMusic uses **Django** as a routing and site stucture site for ease of access a
 ### Existing Features
 
 - Can Find Music Genres and Artists
-- Register
+- Register, Login, Logout
 - Learn About EDM
 - Mobile Friendly
-- Basic Messaging
+- Basic Messaging across Users
+- Add Genres, Sub-Genres and Artists (If Staff Only)
 
 ### Features Left to Implement
 
@@ -46,10 +47,13 @@ EDMusic uses **Django** as a routing and site stucture site for ease of access a
   - Mozilla Firefox
   - Safari
   - IOS Safari
+- It is also tested useing the Django implamented tests
+  
 
 ## Credits
 
 - Credits to the artists who made all the images (We Do Not Claim Any Of The Images)
+- Also A thank you to Wikipedia for the information used! (If any of the information is incorect please contact to fix the information)
 
 ### Media
 

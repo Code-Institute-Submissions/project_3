@@ -12,7 +12,7 @@
         <div class="col-sm-6 card" id="{{ genre.name }}">
             <h2><a  href="{% url 'genre_desc' genre.id %}">{{ genre.name }}</a></h2>
             <img class="small_card_images" src="{{ MEDIA_URL }}{{ genre.image }}"></img>
-            <p>{{ genre.description | truncatechars:100 }}</p>
+            <p>{{ genre.description | truncatechars:135 }}</p>
         </div>
         {% endfor %}
     </div>
