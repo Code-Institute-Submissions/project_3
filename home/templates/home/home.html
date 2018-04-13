@@ -15,8 +15,12 @@
 {% block content %}
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-        <h1>EDMusic Groove</h1>
-        <p>Welcome to EDMusic! The point of this page is to help people find some music in their area or to find a new artist or genre for them to enjoy.</p>
+        <h1>Find Your Groove</h1>
+        <p>Welcome to 
+        <span class="logo1">E</span>
+        <span class="logo2">D</span>
+        <span class="logo3">M</span>
+        <span class="logo4">usic</span>! The point of this page is to help people find some music in their area or to find a new artist or genre for them to enjoy.</p>
     </div>
 </div>
 
@@ -49,15 +53,30 @@
             <a href="{% url 'profile' %}" class="btn btn-info">My Account</a>
         </div>
     </div>
-    <div class="card text-center col-sm-8 vert_align about_card">
-        <div class="card_header">About</div>
+    <div class="card text-center col-sm-4">
+        <div class="card_header">Your Groove</div>
         <div class="card_body">
-            <p class="card_text">I created this website because I noticed the lack of smaller parties or concerts that could be found, so I created this for artists to be found, for dancers to find smaller local dances, and for people to find a new way to discover music! So take a look at the events, find a new artist, discover a new genre, and have fun! This website was created as a project for a coding bootcamp (Code Institute).</p>
-            <a href="#" class="btn btn-info">Take a look at the author!</a>
+            <h5 class="card_title">Find A New Genre Or Artists</h5>
+            <p class="card_text">Check out a list of genres and their respective artists to find your groove!</p>
+            <a href="{% url 'mainpage' %}" class="btn btn-info">Get It On</a>
         </div>
     </div>
-    
-    <div class="card text-center col-xs-12 col-sm-4 text-center">
+    <div class="card text-center col-sm-4">
+        <div class="card_header">Locate Music</div>
+        <div class="card_body">
+            <h5 class="card_title">What Events Are Happening</h5>
+            <p class="card_text">See what small music events are happening in the world or your area!</p>
+            <a href="{% url 'events' %}" class="btn btn-info">Let's Find Some Music</a>
+        </div>
+    </div>
+    <div class="card text-center col-sm-4 vert_align about_card">
+        <div class="card_header">About</div>
+        <div class="card_body">
+            <p class="card_text">Find Out More About Us!</p>
+            <a href="{% url 'about' %}" class="btn btn-info">Take a look at the author!</a>
+        </div>
+    </div>
+    <div class="card text-center col-xs-12 col-sm-8 text-center">
         <div class="card_header">Messages:</div>
         <div class="card_body">
             <h5 class="card_title">You have:</h5>
@@ -81,22 +100,6 @@
             </div>
         </div>
     </div>
-    <div class="card text-center col-sm-8 vert_align about_card">
-        <div class="card_header">About</div>
-        <div class="card_body">
-            <p class="card_text">I created this website because I noticed the lack of smaller parties or concerts that could be found, so I created this for artists to be found, for dancers to find smaller local dances, and for people to find a new way to discover music! So take a look at the events, find a new artist, discover a new genre, and have fun! This website was created as a project for a coding bootcamp (Code Institute).</p>
-            <a href="#" class="btn btn-info">Take a look at the author!</a>
-        </div>
-    </div>
-    <div class="card text-center col-xs-12 col-sm-4">
-        <div class="card_header">Messages</div>
-        <div class="card_body">
-            <h5 class="card_title">See Your Messages Here:</h5>
-            <p class="card_text">Login or Register To see Your Messages</p>
-        </div>
-    </div>
-    {% endif %}
-
     <div class="card text-center col-sm-4">
         <div class="card_header">Your Groove</div>
         <div class="card_body">
@@ -110,15 +113,33 @@
         <div class="card_body">
             <h5 class="card_title">What Events Are Happening</h5>
             <p class="card_text">See what small music events are happening in the world or your area!</p>
-            <a href="#" class="btn btn-info">Let's Find Some Music</a>
+            <a href="{% url 'events' %}" class="btn btn-info">Let's Find Some Music</a>
         </div>
     </div>
+    <div class="card text-center col-sm-4 vert_align about_card">
+        <div class="card_header">About</div>
+        <div class="card_body">
+            <p class="card_text">Find Out More About Us</p>
+            <a href="{% url 'about' %}" class="btn btn-info">Take a look at the author!</a>
+        </div>
+    </div>
+    <div class="card col-xs-12 col-sm-8 text-center">
+        <div class="card_header">Messages</div>
+        <div class="card_body">
+            <h5 class="card_title">See Your Messages Here:</h5>
+            <p class="card_text">Login or Register To see Your Messages</p>
+        </div>
+    </div>
+    {% endif %}
+
+    
 </div>
 
 <!--BUTTON TESTERS:-->
 <!--<a class="btn btn-default">Default</a>-->
 <!--<a class="btn btn-primary">Primary</a>-->
 <!--<a class="btn btn-secondary">Secondary</a>-->
+<!--<a class="btn btn-success">Success</a>-->
 <!--<a class="btn btn-info">Info</a>-->
 <!--<a class="btn btn-warning">Warning</a>-->
 <!--<a class="btn btn-danger">Danger</a>-->

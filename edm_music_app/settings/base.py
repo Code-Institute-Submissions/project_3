@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'new_music',
     'messenger',
     'django_forms_bootstrap',
+    'django_countries',
 ]
 
 MIDDLEWARE = [

@@ -30,27 +30,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="{% url 'home' %}">EDMusic</a>
+                <a class="navbar-brand logo text_style" href="{% url 'home' %}">
+                    <span class="logo1">E</span>
+                    <span class="logo2">D</span>
+                    <span class="logo3">M</span>
+                    <span class="logo4">usic</span>
+                </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'home' %}"><i class="fas fa-home" data-fa-transform="grow-6"> </i> Home</a></li>
                     {% if user.is_authenticated %}
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user" data-fa-transform="grow-6"> </i> {{ user.username }}
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user" data-fa-transform="grow-6"></i>&#160; {{ user.username }}
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'profile' %}"><i class="fas fa-user-circle" data-fa-transform="grow-6"></i> Profile</i></a></li>
-                            <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" data-fa-transform="grow-6"></i> Log Out</a></li>
-                            <li><a href="{% url 'inbox' %}"><i class="fas fa-comments" data-fa-transform="grow-6"> </i> Messages</a></li>
+                            <li><a href="{% url 'profile' %}"><i class="fas fa-user-circle" data-fa-transform="grow-6"></i>&#160; Profile</i></a></li>
+                            <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" data-fa-transform="grow-6"></i>&#160; Log Out</a></li>
+                            <li><a href="{% url 'inbox' %}"><i class="fas fa-comments" data-fa-transform="grow-6"></i>&#160; Messages</a></li>
                         </ul>
                     </li>
                     {% else %}
-                    <li><a href="{% url 'register' %}"><i class="fa fa-plus" data-fa-transform="grow-6"> </i> Register</a></li>
-                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-out-alt" data-fa-transform="grow-6"></i> Log In</a></li>
+                    <li><a href="{% url 'register' %}"><i class="fa fa-plus" data-fa-transform="grow-6"></i>&#160; Register</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-out-alt" data-fa-transform="grow-6"></i>&#160; Log In</a></li>
                     {% endif %}
-                    <li><a href="{% url 'mainpage' %}"><i class="fas fa-music" data-fa-transform="grow-6"> </i> Your Groove</a></li>
-                    <li><a href="#"><i class="far fa-compass" data-fa-transform="grow-6"> </i> Locate Music</a></li>
+                    <li><a href="{% url 'mainpage' %}"><i class="fas fa-music" data-fa-transform="grow-6"></i>&#160; Your Groove</a></li>
+                    <li><a href="{% url 'events' %}"><i class="far fa-compass" data-fa-transform="grow-6"></i>&#160; Locate Music</a></li>
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home" data-fa-transform="grow-6"></i>&#160; Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="far fa-question-circle" data-fa-transform="grow-6"></i>&#160; About</a></li>
                     </a></li>
                 </ul>
             </div>
@@ -65,13 +71,13 @@
         {% block content %}
         
         {% endblock %}
-    </div>
-    <footer>
-        <div class="container">
-            <p>Made by Code Institute bootcampers</p>
-        </div>
-    </footer>
+        <footer>
+            <div class="container">
+                <p>Made by Code Institute bootcampers</p>
+            </div>
+        </footer>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </div>
 </body>
 </html>

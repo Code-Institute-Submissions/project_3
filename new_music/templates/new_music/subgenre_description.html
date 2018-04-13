@@ -2,12 +2,15 @@
 {% block content %}
 
 <div class="row">
+    <div class="col-sm-12">
+        <h4>Dom Genre: {{ subgenre.dom }}</h4>
+    </div>
     <div class="col-sm-8 card" id="{{ genre.name }}">
-        <h2>{{ genre.name }}</h2>
-        <p>{{ genre.description }}</p>
+        <h2>{{ subgenre.subname }}</h2>
+        <p>{{ subgenre.subdescription }}</p>
     </div>
     <div class="col-sm-4">
-        <img class="main_card_images" src="{{ MEDIA_URL }}{{ genre.image }}"></img>
+        <img class="main_card_images" src="{{ MEDIA_URL }}{{ subgenre.subimage }}"></img>
     </div>
     <div class="col-sm-12">
         {% for artist in artists %}
@@ -20,15 +23,4 @@
     </div>
 </div>
 <div class="row">
-    <hr />
-</div>
-<div class="row">
-    {% for sub in subs %}
-        <div class="col-sm-3 card">
-            <h2><a  href="{% url 'subgenre_desc' sub.id %}">{{ sub.subname }}</a></h2>
-            <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub.subimage }}"></img>
-            <p>{{ sub.subdescription | truncatechars:100 }}</p>
-        </div>
-    {% endfor %}
-</div>
 {% endblock %}

@@ -25,7 +25,7 @@ def logout(request):
     messages.success(request, "You have successfully logged out!")
     return redirect('home')
 
-
+@login_required
 def account_profile(request):
     return render(request, "accounts/profile.html")
 

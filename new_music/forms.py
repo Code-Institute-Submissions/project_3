@@ -1,5 +1,5 @@
 from django import forms
-from .models import MainGenre, SubGenre
+from .models import MainGenre, SubGenre, Artists
 
 class MainGenreForm(forms.ModelForm):
     class Meta:
@@ -9,4 +9,9 @@ class MainGenreForm(forms.ModelForm):
 class SubGenreForm(forms.ModelForm):
     class Meta:
         model = SubGenre
-        fields = ('dom', 'name', 'description', 'image')
+        fields = ('dom', 'subname', 'subdescription', 'subimage')
+
+class ArtistForm(forms.ModelForm):
+    class Meta:
+        model = Artists
+        fields = ('name', 'description', 'genre', 'subgenre', 'image')

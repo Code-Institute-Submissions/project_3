@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+    <form role="form" method="post">
+        <legend>Post New Event</legend>
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Post New Event</button>
+        </div>
+    </form>
+{% endblock %}

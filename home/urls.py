@@ -1,6 +1,4 @@
 from django.conf.urls import url, include
-from .views import *
 
 urlpatterns = [
-    url(r'^home$', render_homepage, name='home'),
 ]

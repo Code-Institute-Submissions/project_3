@@ -10,11 +10,20 @@ class MainGenre(models.Model):
         return self.name
         
 class SubGenre(models.Model):
-    dom = models.ForeignKey('MainGenre', related_name="MainGenre", default='')
+    dom = models.ForeignKey('MainGenre', related_name="subgenres", default='')
+    subname = models.CharField(max_length=50, blank=False)
+    subdescription = models.TextField(max_length=800, blank=False)
+    subimage = models.FileField(upload_to='images/main/')
+    
+    def __str__(self):
+        return self.subname
+
+class Artists(models.Model):
     name = models.CharField(max_length=50, blank=False)
     description = models.TextField(max_length=800, blank=False)
     image = models.FileField(upload_to='images/main/')
+    genre = models.ManyToManyField(MainGenre, related_name="artists", help_text="Hold down 'Control', or 'Command' on a Mac, to select more than one.")
+    subgenre = models.ManyToManyField(SubGenre, blank=True, related_name="artists", help_text="Hold down 'Control', or 'Command' on a Mac, to select more than one.")
     
     def __str__(self):
         return self.name
-        

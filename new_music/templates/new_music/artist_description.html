@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-8 card" id="{{ genre.name }}">
+        <h2>{{ artist.name }}</h2>
+        <p>{{ artist.description }}</p>
+    </div>
+    <div class="col-sm-4">
+        <img class="main_card_images" src="{{ MEDIA_URL }}{{ artist.image }}"></img>
+    </div>
+    <div class="col-sm-6">
+        {% for genre in genres %}
+            <div class="col-sm-6 card">
+                <h2><a  href="{% url 'genre_desc' genre.id %}">{{ genre.name }}</a></h2>
+                <img class="small_card_images" src="{{ MEDIA_URL }}{{ genre.image }}"></img>
+                <p>{{ genre.description | truncatechars:100 }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-sm-6">
+        {% for sub in subs %}
+            <div class="col-sm-6 card">
+                <h2><a  href="{% url 'subgenre_desc' sub.id %}">{{ sub.subname }}</a></h2>
+                <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub.subimage }}"></img>
+                <p>{{ sub.subdescription | truncatechars:100 }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+{% endblock %}
