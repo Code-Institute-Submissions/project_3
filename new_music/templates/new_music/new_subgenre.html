@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="row extra_top_padding">
+        <div class="col-sm-12">
+            <form action="" method="POST" enctype="multipart/form-data" data-ajax="false">
+            
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            
+            <input class="btn btn-success" type="submit" value="Send"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

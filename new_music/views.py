@@ -48,6 +48,19 @@ def new_artist(request):
         form = ArtistForm()
         
     return render(request, 'new_music/new_artist.html', {'form': form})
+    
+    
+@login_required
+def new_subgenre(request):
+    if request.method == "POST":
+        form = SubGenreForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('mainpage')
+    else:
+        form = SubGenreForm()
+        
+    return render(request, 'new_music/new_subgenre.html', {'form': form})
 
 def genre_description(request, id):
     genre = get_object_or_404(MainGenre, pk=id)

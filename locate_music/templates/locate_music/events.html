@@ -1,16 +1,18 @@
 {% extends 'home/base.html' %}
 
+
 {% block content %}
     {% if user.is_authenticated %}
     <div class="col-sm-12 text-right">
         <a href="{% url 'new_event' %}" class="btn btn-secondary">Post New Event:</a>
     </div>
     {% endif %}
+    <h5>Sort by:</h5>
+    <a href="{% url 'events' %}" class='btn btn-success'>Recently Posted</a><a href="{% url 'date_events' %}" class='btn btn-warning'>Upcoming</a><a href="{% url 'admission_events' %}" class='btn btn-primary'>Admission</a>
     {% for event in events %}
-    <div class="row">
-        <div class="col-sm-6 card">
+        <div class="col-sm-12 card">
             <div class="col-sm-6">
-                <h3>{{ event.name }}</h3>
+                <h3><a href="{% url 'event_desc' event.id %}">{{ event.name }}</a></h3>
             </div>
             <div class="col-sm-6">
                 <h4>{{ event.date }}{{ event.time }}</h4>
@@ -31,7 +33,6 @@
                 <h5>Posed On: {{ event.posttime }}</h5>
             </div>
         </div>
-    </div>
     {% endfor %}
-
+    
 {% endblock %}

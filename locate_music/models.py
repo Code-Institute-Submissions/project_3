@@ -4,9 +4,9 @@ from new_music.models import MainGenre, SubGenre
 
 # Create your models here.
 class Event(models.Model):
-    name = models.CharField(max_length=50, blank=False)
-    description = models.TextField(max_length=800, blank=False)
-    date = models.DateTimeField(auto_now=False, help_text='Time is in 24 hour time!')
+    name = models.CharField(max_length=50, blank=False, help_text='Name of the event.')
+    description = models.TextField(max_length=800, blank=False, help_text='What is happening at the event?')
+    date = models.DateTimeField(auto_now=False, help_text='Year-Month-Day Time (2018-03-22 22:30 = March 22, 2018, 10:30PM), Time is in 24 hour time!')
     posttime = models.DateTimeField(auto_now=True)
     country = CountryField()
     address = models.CharField(max_length=400, blank=False, help_text='Where is the event?')
