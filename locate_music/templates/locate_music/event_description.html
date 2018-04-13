@@ -28,9 +28,11 @@
                 <h5><a class="btn btn-primary btn-xs">Going? </a> People Going: {{ event.people_going }}</h5>
                 <h5>Max People: {{ event.max_people }}</h5>
                 {% endif %}
+                <div clas="col-sm-6">
+                    <h5>Address: {{ event.address }}</h5>
+                </div>
             </div>
-            <div class="col-sm-12 breaks_card"></div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <h5>Posed On: {{ event.posttime }}</h5>
             </div>
         </div>
