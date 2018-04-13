@@ -3,14 +3,14 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <h4>Dom Genre: {{ subgenre.dom }}</h4>
+        <h4>Dom Genre: {{ subgenre.genre }}</h4>
     </div>
     <div class="col-sm-8 card" id="{{ genre.name }}">
-        <h2>{{ subgenre.subname }}</h2>
-        <p>{{ subgenre.subdescription }}</p>
+        <h2>{{ subgenre.name }}</h2>
+        <p>{{ subgenre.description }}</p>
     </div>
     <div class="col-sm-4">
-        <img class="main_card_images" src="{{ MEDIA_URL }}{{ subgenre.subimage }}"></img>
+        <img class="main_card_images" src="{{ MEDIA_URL }}{{ subgenre.image }}"></img>
     </div>
     <div class="col-sm-12">
         {% for artist in artists %}

@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def get_mainpage_index(request): 
     genres = MainGenre.objects.all()
-    subs = SubGenre.objects.all()
+    subgenres = SubGenre.objects.all()
     artists = Artists.objects.all()
-    return render(request, 'new_music/mainpage.html', {'genres': genres, 'subs': subs, 'artists': artists})
+    return render(request, 'new_music/mainpage.html', {'genres': genres, 'subgenres': subgenres, 'artists': artists})
 
 @login_required
 def new_main_genre(request):
@@ -29,7 +29,7 @@ def new_sub_genre(request, id):
         form = SubGenreForm(request.POST, request.FILES)
         if form.is_valid():
             sub_genre = form.save(commit=False)
-            sub_genre.dom = main_genre.name
+            sub_genre.genre = main_genre.name
             sub_genre.save()
             return redirect('mainpage')
     else:
@@ -51,9 +51,9 @@ def new_artist(request):
 
 def genre_description(request, id):
     genre = get_object_or_404(MainGenre, pk=id)
-    subs = genre.subgenres.all()
+    subgenres = genre.subgenres.all()
     artists = genre.artists.all()
-    return render(request, "new_music/genre_description.html", {'genre': genre, 'subs': subs, 'artists': artists})
+    return render(request, "new_music/genre_description.html", {'genre': genre, 'subgenres': subgenres, 'artists': artists})
 
 def subgenre_description(request, id):
     subgenre = get_object_or_404(SubGenre, pk=id)
@@ -62,6 +62,6 @@ def subgenre_description(request, id):
 
 def artist_description(request, id):
     artist = get_object_or_404(Artists, pk=id)
-    subs = artist.subgenre.all()
+    subgenres = artist.subgenre.all()
     genres = artist.genre.all()
-    return render(request, "new_music/artist_description.html", {'genres': genres, 'subs': subs, 'artist': artist})
+    return render(request, "new_music/artist_description.html", {'genres': genres, 'subgenres': subgenres, 'artist': artist})

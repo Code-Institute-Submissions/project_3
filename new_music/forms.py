@@ -9,7 +9,7 @@ class MainGenreForm(forms.ModelForm):
 class SubGenreForm(forms.ModelForm):
     class Meta:
         model = SubGenre
-        fields = ('dom', 'subname', 'subdescription', 'subimage')
+        fields = ('genre', 'name', 'description', 'image')
 
 class ArtistForm(forms.ModelForm):
     class Meta:

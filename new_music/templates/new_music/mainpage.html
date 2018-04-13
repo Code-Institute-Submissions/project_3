@@ -49,18 +49,18 @@
             </div>
             {% endif %}
             <div class="col-xs-12 col-sm-9">
-                {% for sub in subs %}
-                <div class="col-sm-4 card" id="{{ sub.subname }}">
-                    <h2><a  href="{% url 'subgenre_desc' sub.id %}">{{ sub.subname }}</a></h2>
-                    <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub.subimage }}"></img>
-                    <p>{{ sub.subdescription | truncatechars:135 }}</p>
+                {% for subgenre in subgenres %}
+                <div class="col-sm-4 card" id="{{ subgenre.name }}">
+                    <h2><a  href="{% url 'subgenre_desc' subgenre.id %}">{{ subgenre.name }}</a></h2>
+                    <img class="small_card_images" src="{{ MEDIA_URL }}{{ subgenre.image }}"></img>
+                    <p>{{ subgenre.description | truncatechars:135 }}</p>
                 </div>
                 {% endfor %}
             </div>
             <div class="col-sm-3 sidebar">
                 <ul class="nav nav-list affix">
-                    {% for sub in subs %}
-                        <li><a class="scrollspy_items" href="#{{ sub.subname }}">{{ sub.subname }}</a></li>
+                    {% for subgenre in subgenres %}
+                        <li><a class="scrollspy_items" href="#{{ subgenre.name }}">{{ subgenre.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

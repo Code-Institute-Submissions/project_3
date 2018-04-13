@@ -23,11 +23,11 @@
     <hr />
 </div>
 <div class="row">
-    {% for sub in subs %}
+    {% for subgenre in subgenres %}
         <div class="col-sm-3 card">
-            <h2><a  href="{% url 'subgenre_desc' sub.id %}">{{ sub.subname }}</a></h2>
-            <img class="small_card_images" src="{{ MEDIA_URL }}{{ sub.subimage }}"></img>
-            <p>{{ sub.subdescription | truncatechars:100 }}</p>
+            <h2><a  href="{% url 'subgenre_desc' subgenre.id %}">{{ subgenre.name }}</a></h2>
+            <img class="small_card_images" src="{{ MEDIA_URL }}{{ subgenre.image }}"></img>
+            <p>{{ subgenre.description | truncatechars:100 }}</p>
         </div>
     {% endfor %}
 </div>
